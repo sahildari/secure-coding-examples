@@ -4,13 +4,14 @@ from flask import Flask, request, jsonify, render_template
 import os
 import re
 import logging
+#import magic
 
 app = Flask(__name__)
 app.config["UPLOAD_DIRECTORY"] = "Uploads"
 
 logger = logging.getLogger(__name__)
 
-FILENAME_REGEX_PATTERN = r"^[a-zA-Z0-9\-\_]+$"
+FILENAME_REGEX_PATTERN = r"[\w ]+"
 ALLOWED_EXTENSIONS = set(["txt", "pdf"]) # this example for the txt and pdf files being allowed
 
 def is_valid_name(filename):
@@ -34,6 +35,8 @@ def valid_filename(filename):
 
 @app.route('/')
 def main():
+    if not os.path.exists(app.config["UPLOAD_DIRECTORY"]):
+        os.makedirs(app.config["UPLOAD_DIRECTORY"]) 
     logging.basicConfig(filename='log/app.log', level=logging.DEBUG)
     return render_template("index.html")
 
@@ -42,34 +45,49 @@ def upload_file():
     try:
         logger.info("upload_file() method started")
         if request.method == "POST":
+
             if "file" not in request.files:
                 return jsonify({"error" : "No File Part"})
             file = request.files["file"]
 
             if file.filename == "":
                 return jsonify({"error" : "No selected file"})
-            
+
             try:
                 logger.info("Filename validation started")
-                if file and is_valid_name(file.filename) and is_valid_extension(file.filename):
-                    filename = valid_filename(file.filename)
-                    logger.info(f"File '{filename}' is uploaded")
+                if file and is_valid_extension(file.filename):
+                    logger.info("File extension is allowed")
+                    if is_valid_name(file.filename):
+                        logger.info("Filename is allowed")
+                        filename = valid_filename(file.filename)
+                        logger.info(f"Filename: {filename} is valid")
+                        logger.info("Start file upload")
+                        file_path = os.path.join(app.config["UPLOAD_DIRECTORY"], filename)
+                        file.save(file_path)
+                        logger.info("File uploaded Successfully")
+                        return jsonify({"success" : "File Uploaded Successfully"})
+                    else:
+                        logger.error(f"Invalid FileName provided")
+                        return jsonify({"error" : "Invaid Filename"})
+
+                else:
+                    logger.info(f"Invalid File Extension")
+                    return jsonify({"error" : "Invaid Extension"})
+                    
             except Exception as e:
-                logger.info("Filename validation error" + e.message)
-                return jsonify({"error" : "Invalid File"})
+                logger.error("Filename validation error")
+                logger.error(valid_filename(filename))
+                return jsonify({"error" : "Filename validation failed"})
 
-            if not os.path.exists(app.config["UPLOAD_DIRECTORY"]):
-                os.makedirs(app.config["UPLOAD_DIRECTORY"])
-            
-            file_path = os.path.join(app.config["UPLOAD_DIRECTORY"], filename)
-            file.save(file_path)
-
-            return jsonify({"success" : "File Uploaded Successfully"})
+            # file_path = os.path.join(app.config["UPLOAD_DIRECTORY"], filename)
+            # file.save(file_path)
+            # logger.info("File uploaded Successfully")
+            # return jsonify({"success" : "File Uploaded Successfully"})
         else:
             return jsonify({"error" : "Invalid File"})
-    except Exception as e:
-        logger.info("invalid File" + e.message)
+    except Exception as ex:
+        logger.info("Invalid File Exception")
         return jsonify({"error" : "Invalid File except"})
-    
+
 if __name__ == '__main__':
     app.run()
