@@ -34,6 +34,10 @@ def valid_filename(filename):
 
 @app.route('/')
 def main():
+    if not os.path.exists(app.config["UPLOAD_DIRECTORY"]):
+        os.makedirs(app.config["UPLOAD_DIRECTORY"])
+    if not os.path.exists("log"):
+        os.makedirs("log")
     logging.basicConfig(filename='log/app.log', level=logging.DEBUG)
     return render_template("index.html")
 
@@ -57,9 +61,6 @@ def upload_file():
             except Exception as e:
                 logger.info("Filename validation error" + e.message)
                 return jsonify({"error" : "Invalid File"})
-
-            if not os.path.exists(app.config["UPLOAD_DIRECTORY"]):
-                os.makedirs(app.config["UPLOAD_DIRECTORY"])
             
             file_path = os.path.join(app.config["UPLOAD_DIRECTORY"], filename)
             file.save(file_path)
