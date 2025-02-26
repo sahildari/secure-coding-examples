@@ -6,7 +6,7 @@ This series for secure coding examples targets on the very popular vulnerability
 
 1. Clone the repository:
 ```sh
-git clone [https://github.com/yourusername/pythonapp.git](https://github.com/sahildari/secure-coding-examples/)
+git clone https://github.com/sahildari/secure-coding-examples
 cd 'Path Manipulation'
 ```
 2. Install the package:   
