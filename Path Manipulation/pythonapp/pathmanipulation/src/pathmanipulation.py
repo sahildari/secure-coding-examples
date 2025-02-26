@@ -3,7 +3,7 @@
 import re
 
 FILENAME_REGEX_PATTERN = r"^[a-zA-Z0-9\-\_]+$"
-ALLOWED_EXTENSIONS = set(["txt", "pdf"]) # this example for the txt and pdf files being allowed
+ALLOWED_EXTENSIONS = set(["txt", "pdf"]) # this example allows the txt and pdf files 
 
 def is_valid_name(filename):
     name = filename.rsplit('.', 1)[0]
