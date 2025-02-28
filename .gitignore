@@ -1,3 +1,4 @@
 log/
 Uploads/
 build/
+*.egg-info/
