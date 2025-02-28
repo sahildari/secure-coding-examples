@@ -14,3 +14,5 @@ PATH MANIPULATION
             └───src
                 └───templates
 ```
+
+[python](./python/) directory contains the secure coding example for Path manipulation issue.

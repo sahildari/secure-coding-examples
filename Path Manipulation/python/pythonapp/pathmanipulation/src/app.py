@@ -7,10 +7,11 @@ from .pathmanipulation import is_valid_name, is_valid_extension, valid_filename
 
 app = Flask(__name__)
 app.config["UPLOAD_DIRECTORY"] = "Uploads"
+app.config["MAX_CONTENT_LENGTH"] = 1024 * 1024  # 1 MB
 
 logger = logging.getLogger(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET"])
 def main():
     """Render the index.html page."""
     os.makedirs(app.config["UPLOAD_DIRECTORY"], exist_ok=True)
