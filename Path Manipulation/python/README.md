@@ -1,6 +1,7 @@
-# Path Manipulation with Python
+# Path Manipulation 
 
-This series for secure coding examples targets on the very popular vulnerability tackled while incorporating the file upload functionality. The purpose of this script is to serve as an example for the secure coding practices
+[app.py](./pythonapp/pathmanipulation/src/app.pysrc/app.py)
+
 
 ## Installation
 

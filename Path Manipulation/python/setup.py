@@ -1,12 +1,12 @@
 from setuptools import setup, find_packages
 
-with open('pythonapp/README.md', 'r') as f:
+with open('README.md', 'r') as f:
     long_description = f.read()
 
 setup(
     name='pathmanipulation',
     version='0.0.1',
-    description='Secure Coding Examples to write functions regarding the file upload leading to Path Manipulation issues.',
+    description='Secure Coding Example to mitigate the issues regarding the file upload flaws leading to Path Manipulation issues.',
     package_dir={'': 'pythonapp'},
     packages=find_packages(where='pythonapp'),
     include_package_data=True, 
