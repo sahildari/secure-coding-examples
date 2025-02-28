@@ -2,3 +2,5 @@ log/
 Uploads/
 build/
 *.egg-info/
+*.egg
+*.log

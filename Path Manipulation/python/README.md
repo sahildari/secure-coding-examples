@@ -1,5 +1,5 @@
 # Path Manipulation 
-This python project is to help to mitigate the path manipulation issues. You can use the logic in the pathmanipulation.py in you [Flask]() or [Django]() projects or any other Python projects.
+This python project is to help to mitigate the path manipulation issues. You can use the logic in the pathmanipulation.py in you [Flask](https://pypi.org/project/Flask/) or [Django](https://pypi.org/project/Django/) projects or any other Python projects.
 
 ## Code Structure
 
@@ -9,7 +9,7 @@ This python project is to help to mitigate the path manipulation issues. You can
 
 [template](./pythonapp/pathmanipulation/src/templates) directory contains the index.html as frontend for the file upload with file type check on the client side.
 
-You can try to play around this by following the Installation steps, check the Usage to run the Flask app
+You can try to play around this by following the Installation steps, check the Usage to run the Flask app.
 
 ## Installation
 
