@@ -17,6 +17,7 @@ git clone https://github.com/sahildari/secure-coding-examples
 cd 'Path Manipulation/java'
 ```
 2. Install the package:
+
 **MacOS/Linux:**
 ```sh
 ./mvnw clean spring-boot:run
