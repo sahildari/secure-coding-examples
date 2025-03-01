@@ -5,6 +5,9 @@ target/
 !**/src/test/**/target/
 log/
 
+
+# Maven
+**/.mvn/** */
 !**/src/main/**/build/
 !**/src/test/**/build/
 
