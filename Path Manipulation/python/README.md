@@ -1,5 +1,5 @@
 # Path Manipulation 
-This python project is to help to mitigate the path manipulation issues. You can use the logic in the pathmanipulation.py in you [Flask](https://pypi.org/project/Flask/) or [Django](https://pypi.org/project/Django/) projects or any other Python projects.
+This python project is to help to mitigate the path manipulation issues. You can use the logic in the [pathmanipulation.py](./pythonapp/pathmanipulation/src/pathmanipulation.py) in your [Flask](https://pypi.org/project/Flask/) or [Django](https://pypi.org/project/Django/) projects or any other Python projects.
 
 ## Code Structure
 
