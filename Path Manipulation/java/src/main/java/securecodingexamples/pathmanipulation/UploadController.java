@@ -21,7 +21,7 @@ public class UploadController{
     
     private static final Logger logger = Logger.getLogger(UploadController.class.getName());
     private static final String TEMP_DIRECTORY = System.getProperty("java.io.tmpdir");
-    private static final String UPLOAD_DIRECTORY = TEMP_DIRECTORY + File.separator + "./Uploads";
+    private static final String UPLOAD_DIRECTORY = TEMP_DIRECTORY + File.separator + "Uploads";
     private static final String[] ALLOWED_EXTENSIONS = {"txt", "pdf"};
     private static final Pattern FILENAME_REGEX_PATTERN = Pattern.compile("[a-zA-Z0-9-_]+");
     
