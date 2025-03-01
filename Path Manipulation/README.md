@@ -5,9 +5,23 @@
 
 This attack is also known as _“dot-dot-slash”_, _“directory traversal”_, _“directory climbing”_ and _“backtracking”_.
 
+**NOTE:** The code for the Path Manipulation only check for the Filename validation, Extension Validation. It doesn't check for the File Contents and Magic Numbers. Use this only when you are only worried about the Path Manipulation issue.
+
 ## Directory Structure for Path Manipulation
 ```sh
 PATH MANIPULATION
+├───java
+│   ├───src
+│   │   ├───main
+│   │   │   ├───java
+│   │   │   │   └───securecodingexamples
+│   │   │   │       └───pathmanipulation
+│   │   │   └───resources
+│   │   │       └───static
+│   │   └───test
+│   │       └───java
+│   │           └───securecodingexamples
+│   │               └───pathmanipulation
 └───python
     └───pythonapp
         └───pathmanipulation
@@ -15,4 +29,3 @@ PATH MANIPULATION
                 └───templates
 ```
 
-[python](./python/) directory contains the secure coding example for Path manipulation issue.
