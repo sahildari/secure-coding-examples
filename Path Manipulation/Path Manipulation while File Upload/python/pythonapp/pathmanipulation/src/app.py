@@ -56,7 +56,7 @@ def upload_file():
         if file and is_valid_name(file.filename) and is_valid_extension(file.filename):
             filename = valid_filename(file.filename)
             if filename:
-                unique_filename = get_unique_filename(app.config["UPLOAD_DIRECTORY"], file.filename)
+                unique_filename = get_unique_filename(app.config["UPLOAD_DIRECTORY"], valid_filename(file.filename))
                 file_path = os.path.join(app.config["UPLOAD_DIRECTORY"], unique_filename)
                 file.save(file_path)
                 logger.info(f"File '{unique_filename}' uploaded successfully at {file_path}")
