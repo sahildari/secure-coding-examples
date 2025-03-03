@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 import re
+import os
 
 FILENAME_REGEX_PATTERN = r"^[a-zA-Z0-9\-\_]+$"
 ALLOWED_EXTENSIONS = set(["txt", "pdf"]) # this example allows the text and pdf files 
@@ -24,3 +25,16 @@ def valid_filename(filename):
     ext = re.sub(r"\%[A-Za-z0-9]+", "", ext)
     regex_match = re.search(FILENAME_REGEX_PATTERN, name)
     return f"{regex_match.group(0)}.{ext}" # returns the sanitized filename with the extension for upload 
+
+def get_unique_filename(directory, filename):
+    name, ext = filename.rsplit(".", 1)
+    # name = valid_filename(name) 
+
+    unique_filename = f"{name}.{ext}"
+    count = 1
+
+    while os.path.exists(os.path.join(directory, unique_filename)):
+        unique_filename = f"{name}_{count}.{ext}"
+        count += 1
+
+    return unique_filename

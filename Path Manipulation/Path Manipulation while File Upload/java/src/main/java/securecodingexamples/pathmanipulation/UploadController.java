@@ -55,6 +55,7 @@ public class UploadController{
             if(isValidName(filename) && isValidExtension(filename)){
                 logger.info("Valid Filename and Extension");
                 String validFilename = validFilename(filename);
+                validFilename = getUniqueFilename(validFilename);
                 File destFile = new File(Paths.get(UPLOAD_DIRECTORY, validFilename).toString());
                 file.transferTo(destFile);
                 logger.info("File uploaded successfully: " + validFilename);
@@ -88,5 +89,19 @@ public class UploadController{
         String name = filename.split("\\.", 2)[0];
         String extension = filename.split("\\.", 2)[1];
         return name + "." + extension;
+    }
+
+    private static String getUniqueFilename(String filename) {
+        String name = filename.split("\\.", 2)[0];
+        String extension = filename.split("\\.", 2)[1];
+        File file = new File(Paths.get(UPLOAD_DIRECTORY, filename).toString());
+
+        int count = 1;
+        while (file.exists()) {
+            String newFilename = name + "_" + count + "." + extension;
+            file = new File(Paths.get(UPLOAD_DIRECTORY, newFilename).toString());
+            count++;
+        }
+        return file.getName();
     }
 }

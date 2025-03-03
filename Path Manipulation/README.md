@@ -5,27 +5,36 @@
 
 This attack is also known as _“dot-dot-slash”_, _“directory traversal”_, _“directory climbing”_ and _“backtracking”_.
 
-**NOTE:** The code for the Path Manipulation only check for the Filename validation, Extension Validation. It doesn't check for the File Contents and Magic Numbers. Use this only when you are only worried about the Path Manipulation issue.
+## NOTE 
+The code for the Path Manipulation only check for the Filename validation, Extension Validation, File Size Validation, Unique Filename Validation. **It doesn't check for the File Contents and Magic Numbers. Use this logic when you are concerned about the Path Manipulation issue only**.
+
+The Path Manipulation logic checks for the following:
+- The Filename Validation, to only contain Alphanumeric values with the help of regex.
+- The extension validation, to only allow files with certain extension.
+- File size validation, to only allows files within the 5MB file size.
+- Same Filename validation, to only allow the unique files to be uploaded and not rewrite the existing file.
 
 ## Directory Structure for Path Manipulation
 ```sh
-PATH MANIPULATION
-├───java
-│   ├───src
-│   │   ├───main
-│   │   │   ├───java
-│   │   │   │   └───securecodingexamples
-│   │   │   │       └───pathmanipulation
-│   │   │   └───resources
-│   │   │       └───static
-│   │   └───test
-│   │       └───java
-│   │           └───securecodingexamples
-│   │               └───pathmanipulation
-└───python
-    └───pythonapp
-        └───pathmanipulation
-            └───src
-                └───templates
+Path Manipulation
+├───Path Manipulation while File Read
+└───Path Manipulation while File Upload
+    ├───java
+    │   └───src
+    │       ├───main
+    │       │   ├───java
+    │       │   │   └───securecodingexamples
+    │       │   │       └───pathmanipulation
+    │       │   └───resources
+    │       │       └───static
+    │       └───test
+    │           └───java
+    │               └───securecodingexamples
+    │                   └───pathmanipulation
+    └───python
+        └───pythonapp
+            └───pathmanipulation
+                └───src
+                    └───templates
 ```
 
