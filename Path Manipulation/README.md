@@ -15,7 +15,7 @@ The Path Manipulation logic checks for the following:
 - Same Filename validation, to only allow the unique files to be uploaded and not rewrite the existing file.
 
 ## Directory Structure for Path Manipulation
-```sh
+```
 Path Manipulation
 ├───Path Manipulation while File Read
 └───Path Manipulation while File Upload
