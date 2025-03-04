@@ -1,4 +1,4 @@
-package securecodingexamples.pathmanipulation;
+package securecodingexamples.fileupload.pathmanipulation;
 
 import java.io.File;
 import java.io.IOException;
