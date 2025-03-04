@@ -16,7 +16,9 @@ You can try to play around this by following the Installation steps, check the U
 Please note that this project will try to fetch the files from your ___TEMP/Uploads___ directory. You can either manually create your files in the directory, or you can navigate to [Path Manipulation while File Upload Python Project](../../Path%20Manipulation%20while%20File%20Upload/python/) and follow the installation steps and Upload the test files.
 
 _TEMP : temporary Folder in your OS_
+
 _%TEMP% file in Windows_
+
 _/tmp Directory in Linux/MacOS_
 
 1. Clone the repository:
