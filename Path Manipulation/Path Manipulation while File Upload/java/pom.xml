@@ -11,7 +11,7 @@
 	<groupId>securecodingexamples</groupId>
 	<artifactId>fileupload.pathmanipulation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>fileupload.pathmanipulation</name>
+	<name>pathmanipulation</name>
 	<description>Path Manipulation Secure Coding Example</description>
 	<url/>
 	<licenses>
