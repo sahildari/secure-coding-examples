@@ -16,6 +16,7 @@ The Path Manipulation logic checks for the following:
 
 ## Directory Structure for Path Manipulation
 ```
+Path Manipulation
 ├───Path Manipulation while File Read
 │   ├───java
 │   └───python
@@ -32,7 +33,8 @@ The Path Manipulation logic checks for the following:
     │       └───test
     │           └───java
     │               └───securecodingexamples
-    │                   └───pathmanipulation
+    │                   └───fileupload
+    │                       └───pathmanipulation
     └───python
         └───securecodingexamples
             └───fileupload
@@ -40,4 +42,3 @@ The Path Manipulation logic checks for the following:
                     └───src
                         └───templates
 ```
-
