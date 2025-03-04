@@ -15,7 +15,7 @@ setup(
     url="https://github.com/sahildari/secure-coding-examples",
     author='Sahil Dari',
     author_email="sahil9dari@gmail.com",
-    license='GPL',
+    license='GPLv3',
     classifiers=[
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
         "Programming Language :: Python :: 3",
