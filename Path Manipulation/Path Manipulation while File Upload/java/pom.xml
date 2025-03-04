@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>securecodingexamples</groupId>
-	<artifactId>pathmanipulation</artifactId>
+	<artifactId>fileupload.pathmanipulation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>pathmanipulation</name>
 	<description>Path Manipulation Secure Coding Example</description>

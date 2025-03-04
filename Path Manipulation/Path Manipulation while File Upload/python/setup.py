@@ -4,11 +4,11 @@ with open('README.md', 'r') as f:
     long_description = f.read()
 
 setup(
-    name='pathmanipulation',
+    name='fileupload.pathmanipulation',
     version='0.0.1',
     description='Secure Coding Example to mitigate the issues regarding the file upload flaws leading to Path Manipulation issues.',
-    package_dir={'': 'pythonapp'},
-    packages=find_packages(where='pythonapp'),
+    package_dir={'': 'securecodingexamples'},
+    packages=find_packages(where='securecodingexamples'),
     include_package_data=True, 
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -24,6 +24,6 @@ setup(
     install_requires=["flask > 3.0.0"],
     python_requires='>=3.6',
     package_data={
-        "pathmanipulation": ["src/templates/*.html"], 
+        "securecodingexamples.fileupload.pathmanipulation": ["src/templates/*.html"], 
     },
 )
