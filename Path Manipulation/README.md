@@ -16,15 +16,17 @@ The Path Manipulation logic checks for the following:
 
 ## Directory Structure for Path Manipulation
 ```
-Path Manipulation
 ├───Path Manipulation while File Read
+│   ├───java
+│   └───python
 └───Path Manipulation while File Upload
     ├───java
     │   └───src
     │       ├───main
     │       │   ├───java
     │       │   │   └───securecodingexamples
-    │       │   │       └───pathmanipulation
+    │       │   │       └───fileupload
+    │       │   │           └───pathmanipulation
     │       │   └───resources
     │       │       └───static
     │       └───test
@@ -32,9 +34,10 @@ Path Manipulation
     │               └───securecodingexamples
     │                   └───pathmanipulation
     └───python
-        └───pythonapp
-            └───pathmanipulation
-                └───src
-                    └───templates
+        └───securecodingexamples
+            └───fileupload
+                └───pathmanipulation
+                    └───src
+                        └───templates
 ```
 
