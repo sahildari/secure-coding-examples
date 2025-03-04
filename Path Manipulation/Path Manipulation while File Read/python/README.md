@@ -17,7 +17,7 @@ Please note that this project will try to fetch the files from your ___TEMP/Uplo
 
 _TEMP : temporary Folder in your OS_
 
-_%TEMP% file in Windows_
+_%TEMP% Directory in Windows_
 
 _/tmp Directory in Linux/MacOS_
 
