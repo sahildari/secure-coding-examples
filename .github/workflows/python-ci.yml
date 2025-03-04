@@ -10,7 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: "./Path Manipulation/Path Manipulation while File Upload/python"
+      working-directory-fileupload: "./Path Manipulation/Path Manipulation while File Upload/python"
+      working-directory-fileread: "./Path Manipulation/Path Manipulation while File Read/python"
 
     steps:
       - name: Checkout code
@@ -21,8 +22,14 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: Install Dependencies
-        working-directory: ${{ env.working-directory }}
+      - name: Install Dependencies for Path Manipulation while File Upload
+        working-directory: ${{ env.working-directory-fileupload }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install .
+      
+      - name: Install Dependencies for Path Manipulation while File Read
+        working-directory: ${{ env.working-directory-fileread }}
         run: |
           python -m pip install --upgrade pip
           pip install .

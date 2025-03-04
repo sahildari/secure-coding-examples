@@ -17,28 +17,33 @@ The Path Manipulation logic checks for the following:
 ## Directory Structure for Path Manipulation
 ```
 Path Manipulation
-├───Path Manipulation while File Read
-│   ├───java
-│   └───python
-└───Path Manipulation while File Upload
-    ├───java
-    │   └───src
-    │       ├───main
-    │       │   ├───java
-    │       │   │   └───securecodingexamples
-    │       │   │       └───fileupload
-    │       │   │           └───pathmanipulation
-    │       │   └───resources
-    │       │       └───static
-    │       └───test
-    │           └───java
-    │               └───securecodingexamples
-    │                   └───fileupload
-    │                       └───pathmanipulation
-    └───python
-        └───securecodingexamples
-            └───fileupload
-                └───pathmanipulation
-                    └───src
-                        └───templates
+    ├───Path Manipulation while File Read
+    │   ├───java
+    │   └───python
+    │       └───securecodingexamples
+    │           └───fileread
+    │               └───pathmaniuplation
+    │                   └───src
+    │                       └───templates
+    └───Path Manipulation while File Upload
+        ├───java
+        │   └───src
+        │       ├───main
+        │       │   ├───java
+        │       │   │   └───securecodingexamples
+        │       │   │       └───fileupload
+        │       │   │           └───pathmanipulation
+        │       │   └───resources
+        │       │       └───static
+        │       └───test
+        │           └───java
+        │               └───securecodingexamples
+        │                   └───fileupload
+        │                       └───pathmanipulation
+        └───python
+            └───securecodingexamples
+                └───fileupload
+                    └───pathmanipulation
+                        └───src
+                            └───templates
 ```
