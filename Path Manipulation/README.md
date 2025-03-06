@@ -17,33 +17,48 @@ The Path Manipulation logic checks for the following:
 ## Directory Structure for Path Manipulation
 ```
 Path Manipulation
-    ├───Path Manipulation while File Read
-    │   ├───java
-    │   └───python
-    │       └───securecodingexamples
-    │           └───fileread
-    │               └───pathmaniuplation
-    │                   └───src
-    │                       └───templates
-    └───Path Manipulation while File Upload
-        ├───java
-        │   └───src
-        │       ├───main
-        │       │   ├───java
-        │       │   │   └───securecodingexamples
-        │       │   │       └───fileupload
-        │       │   │           └───pathmanipulation
-        │       │   └───resources
-        │       │       └───static
-        │       └───test
-        │           └───java
-        │               └───securecodingexamples
-        │                   └───fileupload
-        │                       └───pathmanipulation
-        └───python
-            └───securecodingexamples
-                └───fileupload
-                    └───pathmanipulation
-                        └───src
-                            └───templates
+├───while File Read
+│   ├───java
+│   │   └───fileread.pathmanipulation
+│   │       └───src
+│   │           ├───main
+│   │           │   ├───java
+│   │           │   │   └───securecodingexamples
+│   │           │   │       └───fileread
+│   │           │   │           └───pathmanipulation
+│   │           │   └───resources
+│   │           │       └───templates
+│   │           └───test
+│   │               └───java
+│   │                   └───securecodingexamples
+│   │                       └───fileread
+│   │                           └───pathmanipulation
+│   └───python
+│       └───securecodingexamples
+│           └───fileread
+│               └───pathmaniuplation
+│                   └───src
+│                       └───templates
+└───while File Upload
+    ├───java
+    │   └───fileupload.pathmanipulation
+    │       └───src
+    │           ├───main
+    │           │   ├───java
+    │           │   │   └───securecodingexamples
+    │           │   │       └───fileupload
+    │           │   │           └───pathmanipulation
+    │           │   └───resources
+    │           │       └───static
+    │           └───test
+    │               └───java
+    │                   └───securecodingexamples
+    │                       └───fileupload
+    │                           └───pathmanipulation
+    └───python
+        └───securecodingexamples
+            └───fileupload
+                └───pathmanipulation
+                    └───src
+                        └───templates
 ```
