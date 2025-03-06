@@ -32,6 +32,7 @@ def main():
 @app.route("/download/<path:filename>", methods=["GET"])
 def download_file(filename: str):
     """Handles file upload with validation."""
+    logger.info("download_file() method started")
     try:
         if(filename is None or not is_valid_name(filename)):
             logger.error("Invalid filename")
@@ -45,12 +46,11 @@ def download_file(filename: str):
             validfilename = valid_filename(filename)
             logger.info(f"Valid filename: {validfilename}")
             downloads = os.path.join(UPLOADDIR, validfilename)
-            logger.info("download() method started")
             logger.info(f"Requested file: {downloads}")
             return send_file(downloads, as_attachment=True), 200
 
     except Exception as e:
-        logger.error("download() method failed")
+        logger.error("download_file() method failed")
         logger.error(e)
         return jsonify({"error": "Internal Server Error"}), 500
 
