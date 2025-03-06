@@ -10,8 +10,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory-fileupload: "./Path Manipulation/Path Manipulation while File Upload/python"
-      working-directory-fileread: "./Path Manipulation/Path Manipulation while File Read/python"
+      working-directory-fileupload: ".Path Manipulation/while File Upload/python"
+      working-directory-fileread: "./Path Manipulation/while File Read/python"
 
     steps:
       - name: Checkout code
