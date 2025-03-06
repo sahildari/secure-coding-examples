@@ -9,7 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      working-directory: "./Path Manipulation/Path Manipulation while File Upload/java"
+      working-directory-fileupload: "./Path Manipulation/while File Upload/java/fileupload.pathmanipulation"
+      working-directory-fileread: "./Path Manipulation/while File Read/java/fileread.pathmanipulation"
 
     steps:
       - name: Checkout code
@@ -21,8 +22,12 @@ jobs:
           distribution: 'temurin'
           java-version: '21'
 
-      - name: Build with Maven
-        working-directory: ${{ env.working-directory }}
+      - name: Build with Maven for Path Manipulation while File Upload
+        working-directory: ${{ env.working-directory-fileupload }}
+        run: mvn clean -B package --file pom.xml
+
+      - name: Build with Maven for Path Manipulation while File Read
+        working-directory: ${{ env.working-directory-fileread }}
         run: mvn clean -B package --file pom.xml
 
       # - name: Run tests
