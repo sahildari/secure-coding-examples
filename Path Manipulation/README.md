@@ -5,6 +5,10 @@
 
 This attack is also known as _“dot-dot-slash”_, _“directory traversal”_, _“directory climbing”_ and _“backtracking”_.
 
+## Mitigation
+
+Path Manipulation can be mitigated by validating the filename, folder name and extension validation and use the values further in the code only after the validations.
+
 ## NOTE 
 The code for the Path Manipulation only check for the Filename validation, Extension Validation, File Size Validation, Unique Filename Validation. ___It doesn't check for the File Contents and Magic Numbers. Use this logic when you are concerned about the Path Manipulation issue ONLY___.
 
