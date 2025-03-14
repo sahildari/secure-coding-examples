@@ -42,14 +42,14 @@ public class UploadController{
             }
             
             String filename = file.getOriginalFilename();
-            if (filename == null || !isValidExtension(filename)) {
-                logger.warning("Invalid File Extension");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Extension");
-            }
-            
             if (filename == null || !isValidName(filename)) {
                 logger.warning("Invalid Filename");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Filename");
+            }
+
+            if (filename == null || !isValidExtension(filename)) {
+                logger.warning("Invalid File Extension");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Extension");
             }
 
             if(isValidName(filename) && isValidExtension(filename)){

@@ -47,7 +47,7 @@ class UploadControllerTest {
     @Order(1)
     void testFileUploadSuccess() throws Exception {
         MockMultipartFile file = new MockMultipartFile(
-                "file", "valid.txt", "text/plain", "Sample file content".getBytes()
+                "file", "sample.txt", "text/plain", "Sample file content".getBytes()
         );
 
         mockMvc.perform(multipart("/uploadFile")
@@ -102,7 +102,7 @@ class UploadControllerTest {
                 .file(file)
                 .contentType(MediaType.MULTIPART_FORM_DATA))
                 .andExpect(status().isBadRequest())
-                .andExpect(content().string("Invalid Extension"));
+                .andExpect(content().string("Invalid Filename"));
     }
 
     // ✅ Test: Duplicate Filename Handling
