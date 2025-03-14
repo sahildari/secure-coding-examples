@@ -39,11 +39,6 @@ public class DownloadController {
         try {
             logger.info("Download file method started");
 
-            if(filename.contains("..") || filename.contains("/") || filename.contains("\\")) {
-                logger.warning("Invalid filename requested");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid filename");
-            }
-
             if (filename==null || filename.isEmpty() || !isValidName(filename)) {
                 logger.warning("Invalid filename requested");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid filename");
