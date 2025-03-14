@@ -15,6 +15,10 @@ This repository is a collection of Secure Coding Examples. Here you will be able
 
 Tech Stack used in this repository to create the Secure Coding Examples : __Java with SpringBoot__, __Python with Flask__.
 
+## Prerequisites
+
+This project requires [Python3](https://www.python.org/downloads/) and [Java 21](https://www.oracle.com/java/technologies/downloads/#java21). The project will work with lower java environments, but you won't able to run the maven wrapper shipped with the repository.
+
 ## Licensing
 This project is licensed under the [GPL-3.0 license](https://opensource.org/license/gpl-3-0)
 
