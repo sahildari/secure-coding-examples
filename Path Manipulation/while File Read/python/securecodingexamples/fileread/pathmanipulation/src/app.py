@@ -12,6 +12,7 @@ LOGDIR = os.path.join(TEMPDIR + "/logs/")
 UPLOADDIR = os.path.join(TEMPDIR + "/Uploads/")
 
 os.makedirs(LOGDIR, exist_ok=True)
+os.makedirs(UPLOADDIR, exist_ok=True)
 
 loglocation = os.path.join(LOGDIR + "app.log")
 logging.basicConfig(
