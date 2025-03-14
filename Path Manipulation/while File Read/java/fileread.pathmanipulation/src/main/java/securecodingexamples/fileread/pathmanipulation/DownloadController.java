@@ -7,21 +7,17 @@ import org.springframework.core.io.UrlResource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Logger;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 @SpringBootApplication
 @RestController
@@ -37,30 +33,39 @@ public class DownloadController {
         SpringApplication.run(DownloadController.class, args);
     }
 
-    @RequestMapping("/download/{filename}")
+    @RequestMapping("/download")
     @ResponseBody
-    public ResponseEntity<Resource> downloadFile(@PathVariable String filename) {
+    public ResponseEntity<?> downloadFile(@RequestParam(name = "filename", required = true) String filename) {
         try {
-            logger.info("Download request received for: " + filename);
+            logger.info("Download file method started");
 
-            if (filename==null || !isValidName(filename)) {
+            if(filename.contains("..") || filename.contains("/") || filename.contains("\\")) {
                 logger.warning("Invalid filename requested");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid filename");
             }
 
-            if (filename==null || !isValidExtension(filename)) {
-                logger.warning("Invalid file extension ");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            if (filename==null || filename.isEmpty() || !isValidName(filename)) {
+                logger.warning("Invalid filename requested");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid filename");
+            }
+
+            if (filename==null || filename.isEmpty() || !isValidExtension(filename)) {
+                logger.warning("Invalid file extension");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid file extension");
             }
 
             if (isValidName(filename) && isValidExtension(filename)) {
                 filename = validFilename(filename);
                 Path filePath = Paths.get(UPLOAD_DIRECTORY).resolve(filename).normalize();
+                if (!filePath.startsWith(Paths.get(UPLOAD_DIRECTORY))) {
+                    logger.warning("Potential path traversal attempt detected: " + filename);
+                    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Path Traversal Attempt Detected");
+                }
                 Resource resource = new UrlResource(filePath.toUri());
 
                 if (!resource.exists() || !resource.isReadable()) {
                     logger.warning("File not found or not readable: " + filename);
-                    return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+                    return ResponseEntity.status(HttpStatus.NOT_FOUND).body("File not found or not readable");
                 }
 
                 logger.info("File found: " + filename + " at " + filePath);
@@ -70,17 +75,24 @@ public class DownloadController {
                 .body(resource);
             }
             logger.warning("Invalid filename requested");
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid filename");
+        }
+        catch (IOException e) {
+            logger.severe("Error downloading file: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error downloading file");
         }
         
         catch (Exception e) {
             logger.severe("Error downloading file: " + e.getMessage());
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error downloading file");
         }
     }
 
     private static boolean isValidName(String filename) {
         String name = filename.split("\\.", 2)[0];
+        if(name.isEmpty()) {
+            return false;
+        }
         return name.matches(FILENAME_REGEX_PATTERN.pattern());
     }
 

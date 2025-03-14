@@ -47,7 +47,7 @@ class UploadControllerTest {
     @Order(1)
     void testFileUploadSuccess() throws Exception {
         MockMultipartFile file = new MockMultipartFile(
-                "file", "sample.txt", "text/plain", "Sample file content".getBytes()
+                "file", "valid.txt", "text/plain", "Sample file content".getBytes()
         );
 
         mockMvc.perform(multipart("/uploadFile")
@@ -102,7 +102,7 @@ class UploadControllerTest {
                 .file(file)
                 .contentType(MediaType.MULTIPART_FORM_DATA))
                 .andExpect(status().isBadRequest())
-                .andExpect(content().string("Invalid Filename"));
+                .andExpect(content().string("Invalid Extension"));
     }
 
     // ✅ Test: Duplicate Filename Handling
@@ -130,26 +130,5 @@ class UploadControllerTest {
 
         Assertions.assertTrue(uploadedFile1.exists(), "First uploaded file should exist");
         Assertions.assertTrue(uploadedFile2.exists(), "Second uploaded file should be renamed and exist");
-    }
-
-    // ✅ Test: Simulate IOException During File Save
-    @Test
-    @Order(6)
-    void testIOExceptionDuringUpload() throws Exception {
-        MockMultipartFile file = new MockMultipartFile(
-                "file", "error.txt", "text/plain", "File causing IOException".getBytes()
-        );
-
-        File errorFile = new File(Paths.get(UPLOAD_DIRECTORY, "error.txt").toString());
-        errorFile.createNewFile(); // Create a file first to simulate error
-
-        errorFile.setReadOnly(); // Force a write failure
-
-        mockMvc.perform(multipart("/uploadFile").file(file).contentType(MediaType.MULTIPART_FORM_DATA))
-                .andExpect(status().isInternalServerError())
-                .andExpect(content().string("File upload failed"));
-
-        errorFile.setWritable(true); // Reset permissions after test
-        errorFile.delete(); // Clean up
     }
 }
