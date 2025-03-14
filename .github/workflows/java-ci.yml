@@ -30,5 +30,10 @@ jobs:
         working-directory: ${{ env.working-directory-fileread }}
         run: mvn clean -B package --file pom.xml
 
-      # - name: Run tests
-      #   run: mvn test
+      - name: Run tests for Path Manipulation while File Upload
+        working-directory: ${{ env.working-directory-fileupload }}
+        run: mvn test
+
+      - name: Run tests for Path Manipulation while File Read
+        working-directory: ${{ env.working-directory-fileread }}
+        run: mvn test
