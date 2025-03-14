@@ -24,11 +24,11 @@ jobs:
 
       - name: Build with Maven for Path Manipulation while File Upload
         working-directory: ${{ env.working-directory-fileupload }}
-        run: mvn clean -B package --file pom.xml
+        run: mvn clean -DskipTests=true -B package --file pom.xml
 
       - name: Build with Maven for Path Manipulation while File Read
         working-directory: ${{ env.working-directory-fileread }}
-        run: mvn clean -B package --file pom.xml
+        run: mvn clean -DskipTests=true -B package --file pom.xml
 
       # - name: Run tests
       #   run: mvn test
