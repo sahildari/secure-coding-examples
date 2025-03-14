@@ -28,7 +28,7 @@ setup(
     ],
     python_requires=">=3.6",
     package_data={
-        "securecodingexamples.fileread.pathmaniuplation": [
+        "securecodingexamples.fileread.pathmanipulation": [
             "src/templates/*.html"
             ]
     },
