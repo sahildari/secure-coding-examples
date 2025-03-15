@@ -34,6 +34,7 @@ jobs:
           python -m pip install --upgrade pip
           pip install .
 
-      # - name: Run tests
-      #   run: |
-      #     pytest
+      - name: Run tests for Path Manipulation while File Upload
+        working-directory: ${{ env.working-directory-fileupload }}
+        run: |
+          pytest
