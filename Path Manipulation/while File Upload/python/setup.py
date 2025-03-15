@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 with open('README.md', 'r') as f:
     long_description = f.read()
-
+    
 setup(
     name='fileupload.pathmanipulation',
     version='0.0.1',
@@ -21,9 +21,21 @@ setup(
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
-    install_requires=["flask > 3.0.0"],
-    python_requires='>=3.6',
+    install_requires=[
+        "flask > 3.0.0",
+        "pytest",
+        "pytest-flask"
+        ],
+    tests_require=[
+        "pytest",
+        "pytest-flask",
+        "pytest-mock"
+        ],
+    test_suite="tests",
+    python_requires='>=3.8',
     package_data={
-        "securecodingexamples.fileupload.pathmanipulation": ["src/templates/*.html"], 
-    },
+        "securecodingexamples.fileupload.pathmanipulation": [
+            "src/templates/*.html"
+            ]
+        }
 )

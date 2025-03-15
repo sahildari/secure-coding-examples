@@ -3,6 +3,7 @@
 from flask import Flask, request, jsonify, render_template
 import os
 import tempfile
+from werkzeug.exceptions import RequestEntityTooLarge
 import logging
 from .pathmanipulation import is_valid_name, is_valid_extension, valid_filename, get_unique_filename
 
@@ -65,6 +66,9 @@ def upload_file():
                 return jsonify({"error": "Invalid filename"}), 400
         else:
             return jsonify({"error": "Invalid file format"}), 400
+    except RequestEntityTooLarge as e:
+        logger.error(f"File upload error: {str(e)}")
+        return jsonify({"error": "File size exceeds the limit"}), 413
     except Exception as e:
         logger.error(f"File upload error: {str(e)}")
         return jsonify({"error": "Internal server error"}), 500
