@@ -25,7 +25,7 @@ cd 'Unrestriced File Upload/java'
 
 **Windows:**
 ```sh
-mvnw.cmd clean spring-boot:run
+./mvnw.cmd clean spring-boot:run
 ```
 3. Open in Browser:
 ```

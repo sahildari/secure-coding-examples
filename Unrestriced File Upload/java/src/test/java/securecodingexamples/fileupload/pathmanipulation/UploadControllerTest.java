@@ -54,7 +54,7 @@ class UploadControllerTest {
                 .file(file)
                 .contentType(MediaType.MULTIPART_FORM_DATA))
                 .andExpect(status().isOk())
-                .andExpect(content().string("File Uploaded Successfully"));
+                .andExpect(content().string("File Uploaded Successfully: sample.pdf"));
 
         Assertions.assertTrue(new File(Paths.get(UPLOAD_DIRECTORY, "sample.pdf").toString()).exists());
     }
@@ -69,7 +69,7 @@ class UploadControllerTest {
                 .file(emptyFile)
                 .contentType(MediaType.MULTIPART_FORM_DATA))
                 .andExpect(status().isBadRequest())
-                .andExpect(content().string("No selected file"));
+                .andExpect(content().string("File is Empty or No selected file"));
     }
 
     // ✅ Test: Invalid File Extension
@@ -109,7 +109,7 @@ class UploadControllerTest {
         MockMultipartFile file2 = new MockMultipartFile("file", "duplicate.pdf", "application/pdf", "%PDF-1.4 second content".getBytes());
         mockMvc.perform(multipart("/uploadFile").file(file2).contentType(MediaType.MULTIPART_FORM_DATA))
                 .andExpect(status().isOk())
-                .andExpect(content().string("File Uploaded Successfully"));
+                .andExpect(content().string("File Uploaded Successfully: " + "duplicate_1.pdf"));
 
         Assertions.assertTrue(new File(Paths.get(UPLOAD_DIRECTORY, "duplicate.pdf").toString()).exists());
         Assertions.assertTrue(new File(Paths.get(UPLOAD_DIRECTORY, "duplicate_1.pdf").toString()).exists());
