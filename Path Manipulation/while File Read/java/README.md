@@ -6,7 +6,7 @@ This maven project is to help to mitigate the path manipulation issues. You can 
 
 [HomeController](./fileread.pathmanipulation/src/main/java/securecodingexamples/fileread/pathmanipulation/HomeController.java) file serves the [index.html](./fileread.pathmanipulation/src/main/resources/templates/index.html) to serve as the Fronted for the File Upload.
 
-[UploadController.java](./fileread.pathmanipulation/src/main/java/securecodingexamples/fileread/pathmanipulation/DownloadController.java) file contains the logic for the file Upload and the Filename validation, Extension Validation during the File Upload.
+[DownloadController.java](./fileread.pathmanipulation/src/main/java/securecodingexamples/fileread/pathmanipulation/DownloadController.java) file contains the logic for the file Upload and the Filename validation, Extension Validation during the File Upload.
 
 [resources/templates](./fileread.pathmanipulation/src/main/resources/templates/) Directory contains the index.html.
 
@@ -25,7 +25,7 @@ cd 'Path Manipulation/while File Read/java/fileread.pathmanipulation'
 
 **Windows:**
 ```sh
-mvnw.cmd clean spring-boot:run
+./mvnw.cmd clean spring-boot:run
 ```
 3. Open in Browser:
 ```

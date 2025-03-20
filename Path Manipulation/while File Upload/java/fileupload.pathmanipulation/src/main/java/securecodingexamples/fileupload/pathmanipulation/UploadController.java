@@ -42,12 +42,12 @@ public class UploadController{
             }
             
             String filename = file.getOriginalFilename();
-            if (filename == null || !isValidName(filename)) {
+            if (filename == null || filename.isEmpty() || !isValidName(filename)) {
                 logger.warning("Invalid Filename");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Filename");
             }
 
-            if (filename == null || !isValidExtension(filename)) {
+            if (filename == null || filename.isEmpty() || !isValidExtension(filename)) {
                 logger.warning("Invalid File Extension");
                 return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Invalid Extension");
             }
@@ -65,6 +65,9 @@ public class UploadController{
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("File upload failed");
             
         } catch (IOException e) {
+            logger.severe("File upload error: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("File upload failed");
+         } catch (Exception e){
             logger.severe("File upload error: " + e.getMessage());
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("File upload failed");
         }

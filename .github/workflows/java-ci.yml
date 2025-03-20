@@ -11,6 +11,7 @@ jobs:
     env:
       working-directory-fileupload: "./Path Manipulation/while File Upload/java/fileupload.pathmanipulation"
       working-directory-fileread: "./Path Manipulation/while File Read/java/fileread.pathmanipulation"
+      working-directory-unrestricted-fileupload: "./Unrestriced File Upload/java"
 
     steps:
       - name: Checkout code
@@ -30,8 +31,16 @@ jobs:
         working-directory: ${{ env.working-directory-fileread }}
         run: mvn clean -B package --file pom.xml
 
+      - name: Build with Maven for Unrestricted File Upload
+        working-directory: ${{ working-directory-unrestricted-fileupload }}
+        run: mvn clean -B package --file pom.xml
+
       - name: Run tests for Path Manipulation while File Upload
         working-directory: ${{ env.working-directory-fileupload }}
+        run: mvn test
+
+      - name: Run tests for Unrestricted File Upload
+        working-directory: ${{ working-directory-unrestricted-fileupload }}
         run: mvn test
 
       - name: Run tests for Path Manipulation while File Read
@@ -44,4 +53,8 @@ jobs:
 
       - name: Clean up for Path Manipulation while File Read
         working-directory: ${{ env.working-directory-fileread }}
+        run: mvn clean
+
+      - name: Clean up for Unrestricted File Upload
+        working-directory: ${{ working-directory-unrestricted-fileupload }}
         run: mvn clean
