@@ -32,7 +32,7 @@ jobs:
         run: mvn clean -B package --file pom.xml
 
       - name: Build with Maven for Unrestricted File Upload
-        working-directory: ${{ working-directory-unrestricted-fileupload }}
+        working-directory: ${{ env.working-directory-unrestricted-fileupload }}
         run: mvn clean -B package --file pom.xml
 
       - name: Run tests for Path Manipulation while File Upload
@@ -40,7 +40,7 @@ jobs:
         run: mvn test
 
       - name: Run tests for Unrestricted File Upload
-        working-directory: ${{ working-directory-unrestricted-fileupload }}
+        working-directory: ${{ env.working-directory-unrestricted-fileupload }}
         run: mvn test
 
       - name: Run tests for Path Manipulation while File Read
@@ -56,5 +56,5 @@ jobs:
         run: mvn clean
 
       - name: Clean up for Unrestricted File Upload
-        working-directory: ${{ working-directory-unrestricted-fileupload }}
+        working-directory: ${{ env.working-directory-unrestricted-fileupload }}
         run: mvn clean
