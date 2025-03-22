@@ -83,27 +83,34 @@ public class DownloadController {
         }
     }
 
-    private static boolean isValidName(String filename) {
-        String name = filename.split("\\.", 2)[0];
-        if(name.isEmpty()) {
+    //Logic to validate just the extension part of the filename
+    private static boolean isValidExtension(String filename) {
+        if(!filename.contains(".")){
             return false;
         }
-        return name.matches(FILENAME_REGEX_PATTERN.pattern());
-    }
-
-    private static String validFilename(String filename) {
-        String name = filename.split("\\.", 2)[0];
-        String extension = filename.split("\\.", 2)[1];
-        return name + "." + extension;
-    }
-
-    private static boolean isValidExtension(String filename) {
-        String extension = filename.split("\\.", 2)[1];
+        String extension = filename.substring(filename.lastIndexOf(".") + 1);
         for (String ext : ALLOWED_EXTENSIONS) {
             if (ext.equals(extension)) {
                 return true;
             }
         }
         return false;
+    }
+
+    //Logic to Validate just the name part of the filename
+    private static boolean isValidName(String filename) {
+        if(!filename.contains(".")){
+            return false;
+        }
+        String name = filename.substring(0, filename.lastIndexOf("."));
+        return name.matches(FILENAME_REGEX_PATTERN.pattern());
+    }
+
+    //Logic to return the valide Filename (after validating)
+    private static String validFilename(String filename) {
+        int dotIndex = filename.lastIndexOf(".");
+        String name = filename.substring(0, dotIndex);
+        String extension = filename.substring(dotIndex + 1);
+        return name + "." + extension;
     }
 }

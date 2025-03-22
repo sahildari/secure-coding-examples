@@ -31,7 +31,7 @@ public class UploadController{
     private static final String[] ALLOWED_EXTENSIONS = {"jpg", "png", "pdf"}; //jpg, png, pdf
     private static final Pattern FILENAME_REGEX_PATTERN = Pattern.compile("[a-zA-Z0-9-_]+");
 
-    //MAGIC_NUMBERS HashMap to contain the magic numbers of the files.
+    //MAGIC_NUMBERS HashMap to contain the allowed magic numbers of the files.
     private static final Map<String, String> MAGIC_NUMBERS = new HashMap<String, String>();
 
     static{

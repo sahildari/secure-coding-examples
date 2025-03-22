@@ -73,8 +73,12 @@ public class UploadController{
         }
     }
 
+    //Logic to validate just the extension part of the filename
     private static boolean isValidExtension(String filename) {
-        String extension = filename.split("\\.", 2)[1];
+        if(!filename.contains(".")){
+            return false;
+        }
+        String extension = filename.substring(filename.lastIndexOf(".") + 1);
         for (String ext : ALLOWED_EXTENSIONS) {
             if (ext.equals(extension)) {
                 return true;
@@ -83,17 +87,24 @@ public class UploadController{
         return false;
     }
 
+    //Logic to Validate just the name part of the filename
     private static boolean isValidName(String filename) {
-        String name = filename.split("\\.", 2)[0];
+        if(!filename.contains(".")){
+            return false;
+        }
+        String name = filename.substring(0, filename.lastIndexOf("."));
         return name.matches(FILENAME_REGEX_PATTERN.pattern());
     }
 
+    //Logic to return the valide Filename (after validating)
     private static String validFilename(String filename) {
-        String name = filename.split("\\.", 2)[0];
-        String extension = filename.split("\\.", 2)[1];
+        int dotIndex = filename.lastIndexOf(".");
+        String name = filename.substring(0, dotIndex);
+        String extension = filename.substring(dotIndex + 1);
         return name + "." + extension;
     }
 
+    //Logic to return the unique Filename, so the file with same filename will not be overwritten
     private static String getUniqueFilename(String filename) {
         String name = filename.split("\\.", 2)[0];
         String extension = filename.split("\\.", 2)[1];
