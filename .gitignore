@@ -1,16 +1,58 @@
-log/
-Uploads/
-build/
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
 *.egg-info/
 *.egg
-*.log
+*.env/
+*.venv/
+venv/
+.env
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Java
 target/
-!**/.mvn/** */
-!**/src/main/**/target/
-!**/src/test/**/target/
-!**/target/** */
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+.gradle/
+.mvn/
+.mvn/wrapper/
 
-!**/src/main/**/build/
-!**/src/test/**/build/
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+*.swo
 
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+*.bak
+
+# Editor and IDE files
 .vscode/
+.idea/
+*.sublime-workspace
+
+# Flask, Django, and web framework cache
+instance/
+db.sqlite3
+*.sqlite3
+
+# Compiled files
+*.out
+*.o
+*.so
+*.dll
+
+# Ignore uploads and user-generated content
+uploads/
+media/
+staticfiles/
