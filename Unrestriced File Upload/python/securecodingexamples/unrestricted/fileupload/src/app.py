@@ -61,7 +61,8 @@ def upload_file():
             return jsonify({"error" : "Invalid Extension"}), 400
 
         if file and is_valid_name(file.filename) and is_valid_extension(file.filename):
-            if (is_valid_magic_number(file, "pdf") or is_valid_magic_number(file, "png") or is_valid_magic_number(file, "jpg")):
+            ext = valid_filename(file.filename).rsplit(".", 1)[1].lower()
+            if (is_valid_magic_number(file, ext) or is_valid_magic_number(file, ext) or is_valid_magic_number(file, ext)):
                 unique_filename = get_unique_filename(app.config["UPLOAD_DIRECTORY"], valid_filename(file.filename))
                 safe_file_path = os.path.join(app.config["UPLOAD_DIRECTORY"], unique_filename)
                 file.save(safe_file_path)

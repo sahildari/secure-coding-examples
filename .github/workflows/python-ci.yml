@@ -12,6 +12,7 @@ jobs:
     env:
       working-directory-fileupload: "./Path Manipulation/while File Upload/python"
       working-directory-fileread: "./Path Manipulation/while File Read/python"
+      working-directory-unrestricted-fileupload: "./Unrestriced File Upload/python"
 
     steps:
       - name: Checkout code
@@ -33,8 +34,19 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install .
+      
+      - name: Install Dependencies for Unrestricted File Upload
+        working-directory: ${{ working-directory-unrestricted-fileupload }}
+        run: |
+          python -m pip install --upgrade pip
+          pip install .
 
       - name: Run tests for Path Manipulation while File Upload
         working-directory: ${{ env.working-directory-fileupload }}
+        run: |
+          python -m pytest
+
+      - name: Run tests for Path Manipulation while File Read
+        working-directory: ${{ env.working-directory-unrestricted-fileupload }}
         run: |
           python -m pytest

@@ -29,7 +29,7 @@ def valid_filename(filename: str) -> str:
     name, ext = filename.rsplit('.', 1)
     name = re.sub(r"\.", "", name)
     if "%" in name:
-        name = re.sub(r"\%[A-Za-z0-9]+", "", name)
+        name = re.sub(r"\%", "", name)
     if "%" in ext:
         ext = re.sub(r"\%", "", ext).lower()
     regex_match = re.search(FILENAME_REGEX_PATTERN, name)
