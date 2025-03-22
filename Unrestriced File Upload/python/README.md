@@ -1,13 +1,13 @@
 # Path Manipulation 
-This python project is to help to mitigate the path manipulation issues. You can use the logic in the [pathmanipulation.py](./securecodingexamples/fileupload/pathmanipulation/src/pathmanipulation.py) in your [Flask](https://pypi.org/project/Flask/) or [Django](https://pypi.org/project/Django/) projects or any other Python projects.
+This python project is to help to mitigate the path manipulation issues. You can use the logic in the [pathmanipulation.py](./securecodingexamples/unrestricted/fileupload/src/pathmanipulation.py) in your [Flask](https://pypi.org/project/Flask/) or [Django](https://pypi.org/project/Django/) projects or any other Python projects.
 
 ## Code Structure
 
-[app.py](./securecodingexamples/fileupload/pathmanipulation/src/app.py) contains the Flask Code to handle the file upload logic with maximum file size.
+[app.py](./securecodingexamples/unrestricted/fileupload/src/app.py) contains the Flask Code to handle the file upload logic with maximum file size.
 
-[pathmanipulation.py](./securecodingexamples/fileupload/pathmanipulation/src/pathmanipulation.py) contains logic for Filename, File extension, Double extension check and null byte checks.
+[pathmanipulation.py](./securecodingexamples/unrestricted/fileupload/src/pathmanipulation.py) contains logic for Filename, File extension, Double extension check and null byte checks.
 
-[template](./securecodingexamples/fileupload/pathmanipulation/src/templates/) directory contains the index.html as frontend for the file upload with file type check on the client side.
+[template](./securecodingexamples/unrestricted/fileupload/src/templates/) directory contains the index.html as frontend for the file upload with file type check on the client side.
 
 You can try to play around this by following the Installation steps, check the Usage to run the Flask app.
 
@@ -16,7 +16,7 @@ You can try to play around this by following the Installation steps, check the U
 1. Clone the repository:
 ```sh
 git clone https://github.com/sahildari/secure-coding-examples
-cd 'Path Manipulation/Path Manipulation while File Upload/python'
+cd 'Unrestriced File Upload/python'
 ```
 2. Install the package:   
 ```sh
