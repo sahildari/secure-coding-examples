@@ -36,6 +36,9 @@ Thumbs.db
 ehthumbs.db
 *.bak
 
+# Ignore build directories
+build/
+
 # Editor and IDE files
 .vscode/
 .idea/
