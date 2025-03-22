@@ -5,7 +5,7 @@ import os
 import tempfile
 from werkzeug.exceptions import RequestEntityTooLarge
 import logging
-from .pathmanipulation import is_valid_name, is_valid_extension, valid_filename, get_unique_filename
+from .pathmanipulation import is_valid_name, is_valid_extension, valid_filename, get_unique_filename, get_magic_number, is_valid_magic_number
 
 app = Flask(__name__)
 TEMPDIR = tempfile.gettempdir()
@@ -53,17 +53,22 @@ def upload_file():
         
         if request.content_length > max_length:
             return jsonify({"error": "File size exceeds the limit"}), 400
+        
+        if (file is None or not is_valid_name(file.filename)):
+            return jsonify({"error" : "Invalid Filename"}), 400
+        
+        if (file is None or not is_valid_extension(file.filename)):
+            return jsonify({"error" : "Invalid Extension"}), 400
 
         if file and is_valid_name(file.filename) and is_valid_extension(file.filename):
-            filename = valid_filename(file.filename)
-            if filename:
+            if (is_valid_magic_number(file, "pdf") or is_valid_magic_number(file, "png") or is_valid_magic_number(file, "jpg")):
                 unique_filename = get_unique_filename(app.config["UPLOAD_DIRECTORY"], valid_filename(file.filename))
-                file_path = os.path.join(app.config["UPLOAD_DIRECTORY"], unique_filename)
-                file.save(file_path)
-                logger.info(f"File '{unique_filename}' uploaded successfully at {file_path}")
+                safe_file_path = os.path.join(app.config["UPLOAD_DIRECTORY"], unique_filename)
+                file.save(safe_file_path)
+                logger.info(f"File '{unique_filename}' uploaded successfully at {safe_file_path}")
                 return jsonify({"success": "File uploaded successfully"}), 200
             else:
-                return jsonify({"error": "Invalid filename"}), 400
+                return jsonify({"error" : "Invalid File Type"}), 400
         else:
             return jsonify({"error": "Invalid file format"}), 400
     except RequestEntityTooLarge as e:

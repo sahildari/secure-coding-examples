@@ -100,7 +100,7 @@ public class UploadController{
     private static String validFilename(String filename) {
         int dotIndex = filename.lastIndexOf(".");
         String name = filename.substring(0, dotIndex);
-        String extension = filename.substring(dotIndex + 1);
+        String extension = filename.substring(dotIndex + 1).toLowerCase();
         return name + "." + extension;
     }
 

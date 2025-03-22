@@ -28,7 +28,7 @@ public class UploadController{
     private static final Logger logger = Logger.getLogger(UploadController.class.getName());
     private static final String TEMP_DIRECTORY = System.getProperty("java.io.tmpdir");
     private static final String UPLOAD_DIRECTORY = TEMP_DIRECTORY + File.separator + "Uploads";
-    private static final String[] ALLOWED_EXTENSIONS = {"jpg", "png", "pdf"}; //jpg, png, pdf
+    // private static final String[] ALLOWED_EXTENSIONS = {"jpg", "png", "pdf"}; //jpg, png, pdf
     private static final Pattern FILENAME_REGEX_PATTERN = Pattern.compile("[a-zA-Z0-9-_]+");
 
     //MAGIC_NUMBERS HashMap to contain the allowed magic numbers of the files.
@@ -39,6 +39,8 @@ public class UploadController{
         MAGIC_NUMBERS.put("jpg","FFD8FF");
         MAGIC_NUMBERS.put("png","89504E47");
     }
+
+    private static final String[] ALLOWED_EXTENSIONS = MAGIC_NUMBERS.keySet().toArray(new String[0]);
     
     public static void main(String[] args) {
         File uploadDir = new File(UPLOAD_DIRECTORY);
@@ -77,8 +79,7 @@ public class UploadController{
 
             if(isValidName(filename) && isValidExtension(filename)){
                 logger.info("Valid Filename and Extension");
-                String validFilename = validFilename(filename);
-                validFilename = getUniqueFilename(validFilename);
+                String validFilename = getUniqueFilename(validFilename(filename));
 
                 if(isValidMagicNumber(fileMagicNumber, "jpg") || isValidMagicNumber(fileMagicNumber, "png") || isValidMagicNumber(fileMagicNumber, "pdf") ){
                     logger.info("Valid Magic Number");
@@ -130,7 +131,7 @@ public class UploadController{
     private static String validFilename(String filename) {
         int dotIndex = filename.lastIndexOf(".");
         String name = filename.substring(0, dotIndex);
-        String extension = filename.substring(dotIndex + 1);
+        String extension = filename.substring(dotIndex + 1).toLowerCase();
         return name + "." + extension;
     }
 
