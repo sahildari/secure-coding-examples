@@ -36,7 +36,7 @@ jobs:
           pip install .
       
       - name: Install Dependencies for Unrestricted File Upload
-        working-directory: ${{ working-directory-unrestricted-fileupload }}
+        working-directory: ${{ env.working-directory-unrestricted-fileupload }}
         run: |
           python -m pip install --upgrade pip
           pip install .
