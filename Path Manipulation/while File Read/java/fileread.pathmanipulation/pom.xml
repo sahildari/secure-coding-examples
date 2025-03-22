@@ -12,7 +12,7 @@
 	<artifactId>fileread.pathmanipulation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>fileread.pathmanipulation</name>
-	<description>Path Manipulation Secure Coding Example with File Read</description>
+	<description>Mitigating the issue of Path Manipulation (CWE-22), (CWE-34), (CWE-35), (CWE-73)</description>
 	<url/>
 	<licenses>
 		<license/>

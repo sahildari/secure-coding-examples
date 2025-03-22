@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>securecodingexamples</groupId>
-	<artifactId>fileupload.pathmanipulation</artifactId>
+	<artifactId>unrestricted.fileupload</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>unrestricted.fileupload</name>
 	<description>Mitigating the issues of Unrestricted Upload of File with Dangerous Type(CWE-434)</description>

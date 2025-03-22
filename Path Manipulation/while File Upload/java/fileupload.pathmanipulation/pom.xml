@@ -12,7 +12,7 @@
 	<artifactId>fileupload.pathmanipulation</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>fileupload.pathmanipulation</name>
-	<description>Path Manipulation Secure Coding Example</description>
+	<description>Mitigating the issue of Path Manipulation (CWE-22), (CWE-34), (CWE-35), (CWE-73)</description>
 	<url/>
 	<licenses>
 		<license/>

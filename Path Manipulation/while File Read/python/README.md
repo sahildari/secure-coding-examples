@@ -11,20 +11,20 @@ This python project is to help to mitigate the path manipulation issues. You can
 
 You can try to play around this by following the Installation steps, check the Usage to run the Flask app.
 
-## Installation
-
 Please note that this project will try to fetch the files from your ___TEMP/Uploads___ directory. You can either manually create your files in the directory, or you can navigate to [Path Manipulation while File Upload Python Project](../../Path%20Manipulation%20while%20File%20Upload/python/) and follow the installation steps and Upload the test files.
 
-_TEMP : temporary Folder in your OS_
+*TEMP : temporary Folder in your OS*
 
-_%TEMP% Directory in Windows_
+*%TEMP% Directory in Windows*
 
-_/tmp Directory in Linux/MacOS_
+*/tmp Directory in Linux/MacOS*
+
+## Installation
 
 1. Clone the repository:
 ```sh
 git clone https://github.com/sahildari/secure-coding-examples
-cd 'Path Manipulation/Path Manipulation while File Read/python'
+cd 'Path Manipulation/while File Read/python'
 ```
 2. Install the package:   
 ```sh

@@ -8,7 +8,7 @@ with open("README.md", "r") as f:
 setup(
     name="fileread.pathmaniuplation",
     version="0.0.1",
-    description="A simple path manipulation example",
+    description="Secure Coding Example Mitigating the issue of Path Manipulation (CWE-22), (CWE-34), (CWE-35), (CWE-73)",
     long_description=long_description,
     long_description_content_type="text/markdown",
     package_dir={"": "securecodingexamples"},

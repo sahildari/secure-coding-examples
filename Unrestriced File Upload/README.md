@@ -1,10 +1,12 @@
 # Unrestricted File Upload
 
-__Unrestricted File Upload__, as the name suggests, the file uploads are possible with minimal restrictions or no restrictions at all. When the developers don't put the File Upload Restrictions on the server-side code, the __attackers__ are able to upload __Malicious File__ with __Dangerous Types__, which can in turn result more severe issues. 
+__Unrestricted File Upload__, as the name suggests, the file uploads are possible with minimal restrictions or no restrictions at all. When the developers don't put the File Upload Restrictions on the server-side code, the **attackers** are able to upload **Malicious File** with **Dangerous Types**, which can in turn result more severe issues.
+
+You can use the repo as refernce to fix the Unrestricted File Upload issue [CWE-434](https://cwe.mitre.org/data/definitions/434.html)
 
 ## Mitigation
 
-Unrestricted File Upload issues can be mitigated by putting Restrictions on everything possible for the file like __filename, file extensions, Content Type, Magic Numbers__. 
+Unrestricted File Upload issues can be mitigated by putting Restrictions on everything possible for the file like **filename, file extensions, Content Type, Magic Numbers**. 
 
 The Unrestricted File Upload logic checks for the following:
 - The Filename Validation, to only contain Alphanumeric values with the help of regex.
@@ -15,7 +17,7 @@ The Unrestricted File Upload logic checks for the following:
 
 You can check the file signatures tables by visiting this [link](https://www.garykessler.net/library/file_sigs.html).
 
-## Directory Structure for Path Manipulation
+## Directory Structure for UNrestricted File Upload
 ```
 Unrestriced File Upload
 ├───java

@@ -14,7 +14,7 @@ This maven project is to help to mitigate the path manipulation issues. You can 
 1. Clone the repository:
 ```sh
 git clone https://github.com/sahildari/secure-coding-examples
-cd 'Path Manipulation/Path Manipulation while File Upload/java'
+cd 'Path Manipulation/while File Upload/java'
 ```
 2. Install the package:
 

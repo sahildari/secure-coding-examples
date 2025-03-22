@@ -4,6 +4,8 @@ __Privacy Violation: Heap Inspection__ is a source code security issue that occu
 
 There is no guarantee as to when garbage collection will take place. In the event of an application crash, a memory dump might reveal sensitive data, making it accessible to anyone inspecting the heap before garbage collection occurs.
 
+You can use this repo as a reference to mitigate the Privacy violation Heap Inspection issue [CWE-244](https://cwe.mitre.org/data/definitions/244.html)
+
 ## :warning: Important NOTE
 
 ___Never hardcode passwords or sensitive information in your code___. Use secret managers or vaults to securely store passwords and other sensitive data.

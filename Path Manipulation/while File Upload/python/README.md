@@ -9,14 +9,14 @@ This python project is to help to mitigate the path manipulation issues. You can
 
 [template](./securecodingexamples/fileupload/pathmanipulation/src/templates/) directory contains the index.html as frontend for the file upload with file type check on the client side.
 
-You can try to play around this by following the Installation steps, check the Usage to run the Flask app.
+You can try to play around by following the [Installation](#) steps, check the Usage to run the Flask app.
 
 ## Installation
 
 1. Clone the repository:
 ```sh
 git clone https://github.com/sahildari/secure-coding-examples
-cd 'Path Manipulation/Path Manipulation while File Upload/python'
+cd 'Path Manipulation/while File Upload/python'
 ```
 2. Install the package:   
 ```sh
