@@ -10,6 +10,14 @@ This maven project is to help to mitigate the path manipulation issues. You can 
 
 [resources/templates](./fileread.pathmanipulation/src/main/resources/templates/) Directory contains the index.html.
 
+Please note that this project will try to fetch the files from your ***TEMP/Uploads*** directory. You can either manually create your files in the directory, or you can navigate to [Path Manipulation while File Upload Java Project](../../while%20File%20Upload/java/) and follow the installation steps and Upload the test files.
+
+*TEMP : temporary Folder in your OS*
+
+*%TEMP% Directory in Windows*
+
+*/tmp Directory in Linux/MacOS*
+
 ## Installation
 1. Clone the repository:
 ```sh

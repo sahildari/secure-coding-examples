@@ -11,7 +11,7 @@ This python project is to help to mitigate the path manipulation issues. You can
 
 You can try to play around this by following the Installation steps, check the Usage to run the Flask app.
 
-Please note that this project will try to fetch the files from your ___TEMP/Uploads___ directory. You can either manually create your files in the directory, or you can navigate to [Path Manipulation while File Upload Python Project](../../Path%20Manipulation%20while%20File%20Upload/python/) and follow the installation steps and Upload the test files.
+Please note that this project will try to fetch the files from your ___TEMP/Uploads___ directory. You can either manually create your files in the directory, or you can navigate to [Path Manipulation while File Upload Python Project](../../while%20File%20Upload/python/) and follow the installation steps and Upload the test files.
 
 *TEMP : temporary Folder in your OS*
 
