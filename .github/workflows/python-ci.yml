@@ -46,7 +46,7 @@ jobs:
         run: |
           python -m pytest
 
-      - name: Run tests for Path Manipulation while File Read
+      - name: Run tests for Unrestricted File Upload
         working-directory: ${{ env.working-directory-unrestricted-fileupload }}
         run: |
           python -m pytest
