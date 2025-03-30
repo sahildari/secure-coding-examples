@@ -131,7 +131,9 @@ public class UploadController{
     private static String validFilename(String filename) {
         int dotIndex = filename.lastIndexOf(".");
         String name = filename.substring(0, dotIndex);
+        name = name.replaceAll("[^a-zA-Z0-9-_]", "_");
         String extension = filename.substring(dotIndex + 1).toLowerCase();
+        extension = extension.replaceAll("[^a-zA-Z0-9]", "");
         return name + "." + extension;
     }
 

@@ -21,8 +21,6 @@ target/
 *.ear
 *.iml
 .gradle/
-.mvn/
-.mvn/wrapper/
 
 # Logs and temp files
 *.log

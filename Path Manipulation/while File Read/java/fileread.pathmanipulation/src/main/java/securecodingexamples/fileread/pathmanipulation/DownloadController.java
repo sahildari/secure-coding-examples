@@ -110,7 +110,9 @@ public class DownloadController {
     private static String validFilename(String filename) {
         int dotIndex = filename.lastIndexOf(".");
         String name = filename.substring(0, dotIndex);
-        String extension = filename.substring(dotIndex + 1);
+        name = name.replaceAll("[^a-zA-Z0-9-_]", "_");
+        String extension = filename.substring(dotIndex + 1).toLowerCase();
+        extension = extension.replaceAll("[^a-zA-Z0-9]", "");
         return name + "." + extension;
     }
 }
