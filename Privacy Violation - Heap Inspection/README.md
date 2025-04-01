@@ -1,5 +1,7 @@
 # Privacy Violation: Heap Inspection
 
+I have written a detailed blog for Privacy Violation: Heap Inspection, you can check it [here](https://sahildari.medium.com/sast-series-part-2-ecbaca2b9c97)
+
 __Privacy Violation: Heap Inspection__ is a source code security issue that occurs mostly in C#, Java, and Swift applications. Strings are immutable in these languages, meaning that if they are used to store sensitive information such as passwords, credit card numbers, secrets, or tokens, these values will remain in memory until the JVM garbage collector (in Java) or ARC (Automatic Reference Counting) (in Swift) removes them.
 
 There is no guarantee as to when garbage collection will take place. In the event of an application crash, a memory dump might reveal sensitive data, making it accessible to anyone inspecting the heap before garbage collection occurs.
@@ -20,12 +22,11 @@ StringBuffer password = new StringBuffer("SecurePassword");
 
 ## Mitigation
 
-To mitigate the Privacy Violation: Heap Inspection issue in Java, C#, and Swift applications:
-
-:white_check_mark: Use character arrays (char[]) instead of strings to store sensitive information. 
-
-:white_check_mark: Manually clear arrays after use (e.g., overwriting with '\0').
-
-:white_check_mark: Ensure cleanup happens in a finally block to guarantee execution.
-
-By following these best practices, you reduce the risk of exposing sensitive data in memory dumps.
+🔒 Best Practices for Secure Coding
+1️⃣ Never store sensitive information in immutable strings 🚫
+2️⃣ Understand how Garbage Collection (GC) works in your programming language 🧐
+3️⃣ Use Secret Managers or Vaults to store sensitive information 🔐
+4️⃣ Use prebuilt Secure Strings to handle sensitive information
+Java: Use GuardedString (from Java's security libraries)
+C#: Use SecureString to handle sensitive data securely 
+5️⃣ When no prebuilt library exists, store passwords in char[] and overwrite the array after usage to ensure it doesn't linger in memory.

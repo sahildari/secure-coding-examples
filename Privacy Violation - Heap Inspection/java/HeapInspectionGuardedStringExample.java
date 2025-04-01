@@ -54,7 +54,12 @@ public class HeapInspectionGuardedStringExample {
         }
     }
 
-    public static void usePasswordSecurely(GuardedString guardedPassword) {
+    private static void clearSensitiveData(StringBuffer sb){
+        sb.delete(0, sb.length());
+        sb = null;
+    }
+
+    public static GuardedString usePasswordSecurely(GuardedString guardedPassword) {
         // Securely access the password value
         guardedPassword.access(chars -> {
             // Construct the connection string securely
@@ -63,9 +68,12 @@ public class HeapInspectionGuardedStringExample {
                     .append(";columnEncryptionSetting=Enabled;");
     
             System.out.println("Connection String: " + connectionString);
-    
-            // Overwrite the password in memory after use
-            overwriteCharArray(chars);
+            // Perform operations with the connection string here
+
+            // After performing operations, clear the sensitive data
+
+            overwriteByteArray(chars); // Overwrite the password in memory
+            clearSensitiveData(connectionString); // Clear the connection string from memory
         });
     }
 
