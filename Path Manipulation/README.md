@@ -11,7 +11,15 @@ You can use this repo as reference to fix the Path Manipulation issue [CWE-22](h
 
 ## Mitigation
 
-Path Manipulation can be mitigated by validating the filename, folder name and extension validation and use the values further in the code only after the validations.
+🔍 Proper validation and strict controls over file operations are essential to prevent these threats!
+
+✅Validate Filename: Disallow dot character (“.”), percentage character (“%”), slash character (“/”) and/or back slash characters (“\”) and other special characters.
+
+✅Extension Whitelist: Add validation to allow only whitelisted extensions.
+
+✅Limit File Size: Only allows files within your allowed range.
+
+✅Unique Filename Validation: Prevent overwriting the existing files on the server.
 
 ## NOTE 
 The code for the Path Manipulation only check for the Filename validation, Extension Validation, File Size Validation, Unique Filename Validation. ***It doesn't check for the File Contents and Magic Numbers. Use this logic when you are concerned about the Path Manipulation issue ONLY***.
