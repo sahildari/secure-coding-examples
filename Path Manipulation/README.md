@@ -24,6 +24,7 @@ You can use this repo as reference to fix the Path Manipulation issue [CWE-22](h
 ## 🚫 Note to Developers:
 
 🔹 I can’t stress more to include the secure coding examples and when you are trying to mitigate the vulnerabilities, always go for the AND logic, rather than using the OR logic.
+
 🔹 Test your defenses — try bypassing your own security checks!
 
 ## NOTE 
