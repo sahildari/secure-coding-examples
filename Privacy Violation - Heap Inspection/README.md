@@ -31,8 +31,7 @@ StringBuffer password = new StringBuffer("SecurePassword");
 
 4️⃣ Use prebuilt Secure Strings to handle sensitive information
 
-Java: Use GuardedString (from Java's security libraries)
-
-C#: Use SecureString to handle sensitive data securely 
+- Java: Use GuardedString (from Java's security libraries)
+- C#: Use SecureString to handle sensitive data securely 
 
 5️⃣ When no prebuilt library exists, store passwords in char[] and overwrite the array after usage to ensure it doesn't linger in memory.
