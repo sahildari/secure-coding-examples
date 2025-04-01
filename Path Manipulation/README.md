@@ -21,6 +21,11 @@ You can use this repo as reference to fix the Path Manipulation issue [CWE-22](h
 
 ✅Unique Filename Validation: Prevent overwriting the existing files on the server.
 
+## 🚫 Note to Developers:
+
+🔹 I can’t stress more to include the secure coding examples and when you are trying to mitigate the vulnerabilities, always go for the AND logic, rather than using the OR logic.
+🔹 Test your defenses — try bypassing your own security checks!
+
 ## NOTE 
 The code for the Path Manipulation only check for the Filename validation, Extension Validation, File Size Validation, Unique Filename Validation. ***It doesn't check for the File Contents and Magic Numbers. Use this logic when you are concerned about the Path Manipulation issue ONLY***.
 

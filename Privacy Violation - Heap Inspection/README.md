@@ -35,3 +35,17 @@ StringBuffer password = new StringBuffer("SecurePassword");
 - C#: Use SecureString to handle sensitive data securely 
 
 5️⃣ When no prebuilt library exists, store passwords in char[] and overwrite the array after usage to ensure it doesn't linger in memory.
+
+## Directory Structute
+```
+Privacy Violation - Heap Inspection
+│   README.md
+│
+├───csharp
+│       HeapInspectionCharArrayExample.cs
+│       HeapInspectionSecureStringExample.cs
+│
+└───java
+        HeapInspectionCharArrayExample.java
+        HeapInspectionGuardedStringExample.java
+```
