@@ -22,21 +22,22 @@ StringBuffer password = new StringBuffer("SecurePassword");
 
 ## Mitigation
 
-🔒 Best Practices for Secure Coding
-1️⃣ Never store sensitive information in immutable strings 🚫
+:lock: Best Practices for Secure Coding
 
-2️⃣ Understand how Garbage Collection (GC) works in your programming language 🧐
+:one: Never store sensitive information in immutable strings :no_entry_sign:
 
-3️⃣ Use Secret Managers or Vaults to store sensitive information 🔐
+:two: Understand how Garbage Collection (GC) works in your programming language 🧐
 
-4️⃣ Use prebuilt Secure Strings to handle sensitive information
+:three: Use Secret Managers or Vaults to store sensitive information :closed_lock_with_key:
+
+:four: Use prebuilt Secure Strings to handle sensitive information
 
 - Java: Use GuardedString (from Java's security libraries)
-- C#: Use SecureString to handle sensitive data securely 
+- C#: Use SecureString to handle sensitive data securely
 
 5️⃣ When no prebuilt library exists, store passwords in char[] and overwrite the array after usage to ensure it doesn't linger in memory.
 
-## Directory Structute
+## Directory Structure
 ```
 Privacy Violation - Heap Inspection
 │   README.md
